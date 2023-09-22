@@ -1,0 +1,41 @@
+.shipText {
+    font-size: 40px !important;
+    font-weight: 700 !important;
+}
+
+.shipBox {
+    text-align: center;
+    height: 90px;
+    background-color: #f3fafb;
+    padding: 0px 20px;
+}
+
+.shipField {
+    box-shadow: rgba(29, 41, 57, 0.05) 0px 2px 4px, rgba(29, 41, 57, 0.1) 0px 4px 16px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0px 10px;
+    min-width: 280px !important;
+    border-radius: 10px;
+
+}
+
+.shipField div input{
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.trackSearch {
+    right: 538px;
+}
+
+@media screen and (max-width: 470px) {
+    .shipText {
+        font-size: 30px !important;
+    }
+}
+@media screen and (max-width: 360px) {
+    .shipText {
+        font-size: 24px !important;
+    }
+}

@@ -5,7 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchIcon from '@mui/icons-material/Search';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -14,6 +14,7 @@ const Navbar = () => {
     const [trackingNumber, setTrackingNumber] = useState();
     const [content, setContent] = useState([]);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
@@ -62,69 +63,72 @@ const Navbar = () => {
     }, [content]);    
     
   return (
-    <Toolbar>
-    <IconButton
-      color="inherit"
-      aria-label="open drawer"
-      edge="start"
-      onClick={handleDrawerToggle}
-      sx={{ mr: 2, display: { xs: 'block', sm: 'block', lg: 'none' }, color: '#475467' }}
-      className='menuIcon'
-    >
-      <MenuIcon />
-    </IconButton>
-    <Box className="logoBox" onClick={handleHomeRoute}>
-      <MailOutlineIcon className="logoIcon"/>
-      <Typography
-        variant="h6"
-        component="div"
-        sx={{ flexGrow: 1, display: 'block' }}
-        className="logoTitle"
-      >
-        bosta
-      </Typography>
-    </Box>
-    <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }} >
-      <Box className="dropdown">
-        <button className="dropText" >Products<span className='dropTextIcon'><KeyboardArrowDownIcon /></span></button>
-        <Box className="dropdown-content">
-          <a href="#">Solutions</a>
-          <a href="#">Dashboard</a>
-          <a href="#">Mobile App</a>
+    <Toolbar sx={{ display: 'flex', justifyContent: location.pathname === '/' ? '' : 'space-between' }}>
+        <IconButton
+        color="inherit"
+        aria-label="open drawer"
+        edge="start"
+        onClick={handleDrawerToggle}
+        sx={{ mr: 2, display: { xs: 'block', sm: 'block', lg: 'none' }, color: '#475467' }}
+        className='menuIcon'
+        >
+        <MenuIcon />
+        </IconButton>
+        <Box className="logoBox" onClick={handleHomeRoute}>
+        <MailOutlineIcon className="logoIcon"/>
+        <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, display: 'block' }}
+            className="logoTitle"
+        >
+            bosta
+        </Typography>
         </Box>
-      </Box>
-    </Box>
-    <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }}  >
-      <Box className="dropdown">
-        <button className="dropText" >Integrations<span className='dropTextIcon'><KeyboardArrowDownIcon /></span></button>
-        <Box className="dropdown-content">
-          <a href="#">Shopify</a>
-          <a href="#">WooCommerce</a>
-          <a href="#">Custom APIs</a>
+
+    <Box sx={{ display: location.pathname === '/' ? 'contents' : 'none' }}>
+        <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }} className="navItem">
+            <Box className="dropdown">
+                <button className="dropText" >Products<span className='dropTextIcon'><KeyboardArrowDownIcon /></span></button>
+                <Box className="dropdown-content">
+                <a href="#">Solutions</a>
+                <a href="#">Dashboard</a>
+                <a href="#">Mobile App</a>
+                </Box>
+            </Box>
         </Box>
-      </Box>
-    </Box>
-    <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }}  >
-      <Box className="dropdown">
-        <button className="dropText" >Use Cases<span className='dropTextIcon'><KeyboardArrowDownIcon /></span></button>
-        <Box className="dropdown-content">
-          <a href="#">Businesses</a>
-          <a href="#">SMEs</a>
+        <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }} className="navItem">
+            <Box className="dropdown">
+                <button className="dropText" >Integrations<span className='dropTextIcon'><KeyboardArrowDownIcon /></span></button>
+                <Box className="dropdown-content">
+                <a href="#">Shopify</a>
+                <a href="#">WooCommerce</a>
+                <a href="#">Custom APIs</a>
+                </Box>
+            </Box>
         </Box>
-      </Box>
-    </Box>
-    <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }}  >
-      <Box className="dropdown">
-        <a href="#" className="dropText notDropDown" >Pricing</a>
-      </Box>
-    </Box>
-    <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }}  >
-      <Box className="dropdown">
-        <a href="#" className="dropText notDropDown" >Blog</a>
-      </Box>
+        <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }} className="navItem">
+            <Box className="dropdown">
+                <button className="dropText" >Use Cases<span className='dropTextIcon'><KeyboardArrowDownIcon /></span></button>
+                <Box className="dropdown-content">
+                <a href="#">Businesses</a>
+                <a href="#">SMEs</a>
+                </Box>
+            </Box>
+        </Box>
+        <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }} className="navItem">
+            <Box className="dropdown">
+                <a href="#" className="dropText notDropDown" >Pricing</a>
+            </Box>
+        </Box>
+        <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }} className="navItem">
+            <Box className="dropdown">
+                <a href="#" className="dropText notDropDown" >Blog</a>
+            </Box>
+        </Box>
     </Box>
 
-    <Box sx={{ display: 'block' }} className="trackSipmentButton" >
+    <Box sx={{ display: location.pathname === '/' ? 'block' : 'none' }} className="trackSipmentButton navItem" >
       <Box className="dropdown">
         <button className="dropText trackShipment" >Track Shipment<span className='dropTextIcon'><KeyboardArrowDownIcon /></span></button>
         <Box className="dropdown-content trackShipmentDrop">
@@ -135,9 +139,9 @@ const Navbar = () => {
       </Box>
     </Box>
 
-    <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }}  >
+    <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }} >
       <Box className="dropdown">
-        <button className="dropText" >En<span className='dropTextIcon'><KeyboardArrowDownIcon /></span></button>
+        <button className="dropText" style={{ backgroundColor: location.pathname === '/' ? '#ffffff' : 'transparent' }}>En<span className='dropTextIcon'><KeyboardArrowDownIcon /></span></button>
         <Box className="dropdown-content">
           <a href="#">English</a>
           <a href="#">Arabic</a>
@@ -145,15 +149,17 @@ const Navbar = () => {
       </Box>
     </Box>
 
-    <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }}  >
-      <Box className="dropdown">
-        <button className="dropText notDropDown signInBtn" >Sign In</button>
-      </Box>
-    </Box>
-    <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }}  >
-      <Box className="dropdown">
-        <button className="dropText notDropDown signUpBtn" >Sign Up</button>
-      </Box>
+    <Box sx={{ display: location.pathname === '/' ? 'contents' : 'none' }}>
+        <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }}  className="navItem">
+            <Box className="dropdown">
+                <button className="dropText notDropDown signInBtn" >Sign In</button>
+            </Box>
+        </Box>
+        <Box sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }}  className="navItem">
+            <Box className="dropdown">
+                <button className="dropText notDropDown signUpBtn" >Sign Up</button>
+            </Box>
+        </Box>
     </Box>
 
   </Toolbar>

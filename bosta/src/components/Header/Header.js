@@ -6,13 +6,16 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Navbar from '../Navbar';
 import Sidebar from '../Sidebar';
+import { useLocation } from 'react-router-dom';
 
 function Header() {
+
+  const location = useLocation();
 
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar component="nav" className="navbar">
+      <AppBar component="nav" className="navbar" sx={{ backgroundColor: location.pathname === '/' ? '#ffffff !important' : '#f3fafb !important' }}>
         <Navbar />
       </AppBar>
 

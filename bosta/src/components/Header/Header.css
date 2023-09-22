@@ -1,0 +1,177 @@
+.navbar {
+    background-color: #ffffff !important;
+    padding: 16px 30px;
+    box-shadow: none !important;
+    position: relative;
+}
+
+.logoBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logoIcon {
+    color: #e30613;
+    transform: scale(1.5);
+}  
+
+.logoTitle {
+    color: #e30613;
+    font-weight: 700 !important;
+    font-size: 25px !important;
+}
+
+.sidebar {
+    color: #475467 !important;
+}
+
+.dropText {
+    color: #475467;
+    padding: 4px 14px;
+    font-size: 16px;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    background-color: #ffffff;
+    align-items: center;
+}
+
+.dropText:hover {
+    color: #e30613;
+}
+
+.dropTextIcon {
+    margin-top: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 100px;
+    box-shadow: 0 3px 6px -4px rgba(0,0,0,.12), 0 6px 16px 0 rgba(0,0,0,.08), 0 9px 28px 8px rgba(0,0,0,.05);
+    z-index: 1;
+    padding: 8px;
+    border-radius: 5px;
+    margin-left: 8px;
+}
+
+.dropdown-content a {
+    color: #111619;
+    padding: 7px 5px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.notDropDown {
+    text-decoration: none;
+}
+
+.notDropDown:hover {
+    text-decoration: underline;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.signInBtn {
+    color: #111619;
+}
+
+.trackShipment {
+    color: #e30613;
+}
+
+.trackShipmentDrop{
+    border: solid 1px #b6c0d1;
+    border-radius: 10px;
+    padding: 25px 30px;
+}
+
+.trackTextField {
+    width: 250px;
+    position: relative;
+}
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+    border-radius: 10px !important;
+}
+
+.searchBtn {
+    position: absolute;
+    right: 30px;
+    background-color: #e30613;
+    color: #ffffff;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    width: 55px;
+    height: 56px;
+    cursor: pointer;
+}
+
+.searchBtn svg {
+    transform: scale(1.5);
+    margin-top: 5px;
+}
+
+.trackText {
+    color: #475467;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 12px !important;
+    margin-left: 8px !important;
+}
+
+.signUpBtn {
+    color: #e30613;
+    border: solid 1px #e30613;
+    padding: 15px 27px;
+    border-radius: 50px;
+}
+
+.signUpBtn:hover {
+    color: #ffffff;
+    background-color: #e30613;
+    border: solid 1px #e30613;
+    padding: 15px 27px;
+    border-radius: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+    .menuIcon {
+        position: absolute !important;
+        right: 0px;
+        transform: scale(1.3);
+        margin-top: 8px;
+    }
+
+    .menuIcon:hover {
+        background-color: #ffffff !important;    
+    }
+
+    .menuIcon svg{
+        transform: scale(1.3);
+        margin-top: 8px;
+    }
+
+    .trackSipmentButton {
+        position: absolute;
+        right: 70px;
+    }
+
+    .trackShipmentDrop {
+        right: 12px;
+    }
+}

@@ -12,7 +12,7 @@ const NoSipment = () => {
     <Box>
         <TrackShipment />
 
-        <Box className="npShipment">
+        <Box className="noShipment">
             <Box className="shipNoBox">
                 <Typography className='shipNo'>Shipment No. {location.state.trackNo}</Typography>
             </Box>

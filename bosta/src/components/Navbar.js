@@ -51,12 +51,13 @@ const Navbar = () => {
             navigate("/trackingshipment", {
                 state: {
                     trackNo: trackingNumber,
+                    content: content
                 },
             });
         } else {
             navigate("/noshipment", {
                 state: {
-                    trackNo: trackingNumber,
+                    trackNo: trackingNumber
                 },
             });
         }

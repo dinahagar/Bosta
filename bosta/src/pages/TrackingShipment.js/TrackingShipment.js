@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './TrackingShipment.css';
-import { Box, Divider, Grid, Stack, Step, StepLabel, Stepper, Typography } from '@mui/material';
+import { Box, Divider, Grid, Paper, Stack, Step, StepLabel, Stepper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
@@ -9,7 +9,8 @@ import LocalShippingRoundedIcon from '@mui/icons-material/LocalShippingRounded';
 import PlaylistAddCheckCircleRoundedIcon from '@mui/icons-material/PlaylistAddCheckCircleRounded';
 import ReceiptRoundedIcon from '@mui/icons-material/ReceiptRounded';
 import CheckBoxRoundedIcon from '@mui/icons-material/CheckBoxRounded';
-import { formatDate } from '../../components/formateDate';
+import { formatDate, formatShipmentDate, formatShipmentTime } from '../../components/formateDate';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 
 const TrackingShipment = () => {
 
@@ -168,12 +169,55 @@ const TrackingShipment = () => {
 
       <Box>
         <Box sx={{ flexGrow: 1 }} className="shipmentDetails">
-            <Grid container spacing={4}>
+            <Grid container spacing={2}>
               <Grid item xs={12} sm={12} md={8}>
-
+                <Typography className='tableTitle'>Shipment Details</Typography>
+                <Box className="shipmentTable">
+                  <Grid container spacing={4}>
+                    <Grid item xs={6} sm={6} md={2} className='tableColumn'>
+                      <Typography className='tableHead'>Location</Typography>
+                      {[...Array(13)].map(() => <Typography>Nasr City</Typography>)}
+                    </Grid>
+                    <Grid item xs={6} sm={6} md={3} className='tableColumn'>
+                      <Typography className='tableHead'>Date</Typography>
+                      {content.TransitEvents.map(ship => (
+                        <Typography>{formatShipmentDate(ship.timestamp)}</Typography>
+                      ))}
+                    </Grid>
+                    <Grid item xs={4} sm={6} md={3} className='tableColumn'>
+                      <Typography className='tableHead'>Time</Typography>
+                      {content.TransitEvents.map(ship => (
+                        <Typography>{formatShipmentTime(ship.timestamp)}</Typography>
+                      ))}
+                    </Grid>
+                    <Grid item xs={8} sm={6} md={4} className='tableColumn'>
+                      <Typography className='tableHead'>Details</Typography>
+                      {content.TransitEvents.map(ship => (
+                        <Typography className='lastTableHead'>{ship.state}</Typography>
+                      ))}
+                    </Grid>
+                  </Grid>
+                </Box>
               </Grid>
-              <Grid item xs={12} sm={12} md={4}>
 
+              <Grid item xs={12} sm={12} md={4}>
+                <Typography>Delivery Address</Typography>
+                <Box>
+                  <Typography>Imbaba, Talaat Harb Street, Al-Ummal City, next to the Prince, House 17, Block 33, Cairo</Typography>
+                </Box>
+                <Box>
+                <Grid container spacing={4}>
+                  <Grid item xs={12} sm={9} md={9}>
+                    <Box>
+                      <Typography>Is there a problem with your shipment?</Typography>
+                      <button>Report an issue</button>
+                    </Box>
+                  </Grid>
+                  <Grid item xs={12} sm={3} md={3}>
+                    <QuestionMarkIcon />
+                  </Grid>
+                </Grid>
+                </Box>
               </Grid>
             </Grid>
         </Box>

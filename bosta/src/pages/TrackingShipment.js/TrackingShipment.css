@@ -33,10 +33,47 @@
     color: #c3c3c6;
 }
 
+.shipmentTable {
+    border: solid 1px #eaeaf0;
+    padding: 0px 0px 0px 32px;
+}
+
+.tableColumn {
+    display: grid;
+    padding-left: 0px !important;
+}
+
+.tableColumn p {
+    font-weight: 500;
+    font-size: 14px;
+    border-bottom: solid 1px #eaeaf0;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.tableHead {
+    color: #909090;
+    background-color: #eaeaf0;
+}
+
+.tableTitle {
+    font-weight: 600 !important;
+    margin-bottom: 20px !important;
+}
+
 @media screen and (max-width: 350px) {
     .shipmentDetails {
         padding: 20px 10px;
     }    
+}
+
+@media screen and (max-width: 440px) {
+    .lastTableHead{
+        font-size: 11px !important;
+        font-weight: 600 !important;
+    }
 }
 
 @media screen and (max-width: 600px) {

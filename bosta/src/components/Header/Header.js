@@ -15,7 +15,7 @@ function Header() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar component="nav" className="navbar" sx={{ backgroundColor: location.pathname === '/' ? '#ffffff !important' : '#f3fafb !important' }}>
+      <AppBar component="nav" className="navbar" sx={{ backgroundColor: location.pathname === '/noshipment' ? '#f3fafb !important' : '#ffffff !important' }}>
         <Navbar />
       </AppBar>
 

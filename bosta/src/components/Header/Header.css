@@ -32,7 +32,7 @@
     border: none;
     font-weight: 600;
     display: flex;
-    background-color: #ffffff;
+    background-color: transparent;
     align-items: center;
 }
 
@@ -148,7 +148,7 @@
     border-radius: 50px;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1199px) {
     .menuIcon {
         position: absolute !important;
         right: 0px;
@@ -173,4 +173,20 @@
     .trackShipmentDrop {
         right: 12px;
     }
+}
+
+@media screen and (min-width: 1200px){
+    .navbar div {
+        justify-content: space-around;
+    }    
+}
+
+@media screen and (max-width: 410px) {
+    .trackShipment {
+        margin-top: 75px;
+    }   
+
+    .trackShipmentDrop {
+        right: -60px;
+    } 
 }

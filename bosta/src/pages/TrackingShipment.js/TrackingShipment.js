@@ -126,48 +126,59 @@ const TrackingShipment = () => {
   }, [desc, step, color])
 
   return (
-    <Box className="shipmentStateBox">
+    <>
+      <Box className="shipmentStateBox">
+        <Box sx={{ flexGrow: 1 }} className="shipmentDetails">
+          <Grid container spacing={4}>
+            <Grid item xs={12} sm={6} md={3}>
+              <Box>
+                <Typography className='shipTitle'>Sipment No {trackNo}</Typography>
+                <Typography className='shipStateDetails'>{desc}</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <Typography className='shipTitle'>Last Update</Typography>
+              <Typography className='shipDetails'>{formatDate(content?.CurrentStatus?.timestamp)}</Typography>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <Typography className='shipTitle'>Seller Name</Typography>
+              <Typography className='shipDetails'>SOUQ.COM</Typography>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <Typography className='shipTitle'>Delivery Time</Typography>
+              <Typography className='shipDetails'>{formatDate(content?.PromisedDate)}</Typography>
+            </Grid>
+          </Grid>
+        </Box>
 
-      <Box sx={{ flexGrow: 1 }} className="shipmentDetails">
-        <Grid container spacing={4}>
-          <Grid item xs={12} sm={6} md={3}>
-            <Box>
-              <Typography className='shipTitle'>Sipment No {trackNo}</Typography>
-              <Typography className='shipStateDetails'>{desc}</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography className='shipTitle'>Last Update</Typography>
-            <Typography className='shipDetails'>{formatDate(content?.CurrentStatus?.timestamp)}</Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography className='shipTitle'>Seller Name</Typography>
-            <Typography className='shipDetails'>SOUQ.COM</Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography className='shipTitle'>Delivery Time</Typography>
-            <Typography className='shipDetails'>{formatDate(content?.PromisedDate)}</Typography>
-          </Grid>
-        </Grid>
+        <Divider sx={{ width: '100%' }} />
+
+        <Box sx={{ width: '100%', padding: '20px 30px' }}>
+          <Stack sx={{ width: '100%' }} spacing={4}>
+            <Stepper alternativeLabel activeStep={step} connector={<QontoConnector />}>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel StepIconComponent={QontoStepIcon} >{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </Stack>
+        </Box>
       </Box>
 
-      <Divider sx={{ width: '100%' }} />
+      <Box>
+        <Box sx={{ flexGrow: 1 }} className="shipmentDetails">
+            <Grid container spacing={4}>
+              <Grid item xs={12} sm={12} md={8}>
 
-      <Box sx={{ width: '100%', padding: '20px 30px' }}>
+              </Grid>
+              <Grid item xs={12} sm={12} md={4}>
 
-        <Stack sx={{ width: '100%' }} spacing={4}>
-          <Stepper alternativeLabel activeStep={step} connector={<QontoConnector />}>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel StepIconComponent={QontoStepIcon} >{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-        </Stack>
-
+              </Grid>
+            </Grid>
+        </Box>
       </Box>
-
-    </Box>
+    </>
   )
 }
 

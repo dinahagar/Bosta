@@ -2,8 +2,9 @@
     display: grid;
     border: solid 1px #eaeaf0;
     border-radius: 10px;
-    margin: 0px 60px;
-    width: 100%;
+    margin: 0px 4%;
+    width: 92%;
+    margin-top: 35px;
 }
 
 .shipmentDetails {
@@ -40,8 +41,6 @@
 
 @media screen and (max-width: 600px) {
     .shipmentStateBox {
-        margin: 0px 10px;
-        width: 100%;
         justify-content: center;
         text-align: center;
     }    

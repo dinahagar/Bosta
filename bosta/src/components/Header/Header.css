@@ -41,7 +41,7 @@
 }
 
 .dropTextIcon {
-    margin-top: 5px;
+    margin-top: 12px;
 }
 
 .dropdown-content {
@@ -110,7 +110,7 @@
 
 .searchBtn {
     position: absolute;
-    right: 0px;
+    right: 30px;
     background-color: #e30613;
     color: #ffffff;
     border: none;

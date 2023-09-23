@@ -38,7 +38,7 @@
 }
 
 .noshipmentImage {
-    background-image: url(../../../public/images/bostaImg1.png);
+    background-image: url(../../images/bostaImg1.png);
     background-size: contain;
     background-repeat: repeat-x;
     width: 100%;

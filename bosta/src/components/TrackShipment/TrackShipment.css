@@ -17,16 +17,14 @@
     margin: 0px 10px;
     min-width: 280px !important;
     border-radius: 10px;
-
 }
 
 .shipField div input{
     background-color: #ffffff;
     border-radius: 10px;
 }
-
-.trackSearch {
-    right: 524px;
+.shipField div {
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 470px) {

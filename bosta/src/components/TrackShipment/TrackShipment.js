@@ -54,8 +54,14 @@ const TrackShipment = () => {
     <Box className="trackBox">
         <Box className="shipBox">
             <Typography className='shipText'>Track Your Shipment</Typography>
-            <TextField id="outlined-basic" label="TrackingNo." variant="outlined" className='trackTextField shipField' onChange={handleTrackingNo}/>
-            <button className='searchBtn trackSearch' onClick={handleSearch}><SearchIcon /></button>
+            <TextField 
+                id="outlined-basic" 
+                label="TrackingNo." 
+                variant="outlined" 
+                className='trackTextField shipField' 
+                onChange={handleTrackingNo} 
+                InputProps={{endAdornment: <button className='searchBtn trackSearch' onClick={handleSearch}><SearchIcon /></button>}}
+            />
         </Box>
     </Box>
   )

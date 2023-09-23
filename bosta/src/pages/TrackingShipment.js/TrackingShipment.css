@@ -63,10 +63,62 @@
     margin-bottom: 20px !important;
 }
 
+.addressBox {
+    border: solid 1px #eaeaf0;
+    background-color: #eaeaf0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.issueBox {
+    border: solid 1px #eaeaf0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.issueQBox {
+    text-align: center;
+}
+
+.issueQ {
+    font-weight: 600 !important;
+    margin-bottom: 5px !important;
+}
+
+.issueBtn {
+    border-color: transparent;
+    color: #ffffff;
+    background-color: #e30613;
+    border-radius: 10px;
+    padding: 5px;
+    width: 70%;
+}
+
+.issueMark {
+    font-size: 75px !important;
+    color: #e30613;
+    padding-left: 0px !important;
+}
+
+.stepperBox {
+    width: 100%;
+    padding: 20px 30px;
+}
+
 @media screen and (max-width: 350px) {
     .shipmentDetails {
-        padding: 20px 10px;
+        padding: 20px 0px !important;
+    }  
+    
+    .stepperBox {
+        width: 100%;
+        padding: 20px 0px !important;
     }    
+
+    .tableTitle {
+        padding-left: 20px;
+    }
 }
 
 @media screen and (max-width: 440px) {

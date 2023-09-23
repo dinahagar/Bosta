@@ -154,7 +154,7 @@ const TrackingShipment = () => {
 
         <Divider sx={{ width: '100%' }} />
 
-        <Box sx={{ width: '100%', padding: '20px 30px' }}>
+        <Box className="stepperBox" sx={{ width: '100%', padding: '20px 30px' }}>
           <Stack sx={{ width: '100%' }} spacing={4}>
             <Stepper alternativeLabel activeStep={step} connector={<QontoConnector />}>
               {steps.map((label) => (
@@ -200,23 +200,23 @@ const TrackingShipment = () => {
                 </Box>
               </Grid>
 
-              <Grid item xs={12} sm={12} md={4}>
-                <Typography>Delivery Address</Typography>
-                <Box>
-                  <Typography>Imbaba, Talaat Harb Street, Al-Ummal City, next to the Prince, House 17, Block 33, Cairo</Typography>
+              <Grid item xs={12} sm={12} md={4} className='issueGrid'>
+                <Typography className='tableTitle'>Delivery Address</Typography>
+                <Box className="addressBox">
+                  <Typography className='address'>Imbaba, Talaat Harb Street, Al-Ummal City, next to the Prince, House 17, Block 33, Cairo</Typography>
                 </Box>
-                <Box>
-                <Grid container spacing={4}>
-                  <Grid item xs={12} sm={9} md={9}>
-                    <Box>
-                      <Typography>Is there a problem with your shipment?</Typography>
-                      <button>Report an issue</button>
-                    </Box>
+                <Box className="issueBox">
+                  <Grid container spacing={4}>
+                    <Grid item xs={12} sm={9} md={9}>
+                      <Box className="issueQBox">
+                        <Typography className='issueQ'>Is there a problem with your shipment?</Typography>
+                        <button className='issueBtn'>Report an issue</button>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} sm={3} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
+                      <QuestionMarkIcon className='issueMark'/>
+                    </Grid>
                   </Grid>
-                  <Grid item xs={12} sm={3} md={3}>
-                    <QuestionMarkIcon />
-                  </Grid>
-                </Grid>
                 </Box>
               </Grid>
             </Grid>
